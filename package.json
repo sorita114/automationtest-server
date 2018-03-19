@@ -1,0 +1,24 @@
+{
+  "name": "automationtest-server",
+  "version": "1.0.0",
+  "description": "automationtest by mz",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm ./bin/wwws"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sorita114/automationtest-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sorita114/automationtest-server/issues"
+  },
+  "homepage": "https://github.com/sorita114/automationtest-server#readme"
+}
