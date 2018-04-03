@@ -6,7 +6,7 @@ var CONTACTS_COLLECTION = 'user';
 
 var db;
 
-mongodb.MongoClient.connect('mongodb://heroku_cjng4mtc:10426sori@ds231719.mlab.com:31719/heroku_cjng4mt', function (err, client) {
+mongodb.MongoClient.connect('mongodb://heroku_cjng4mtc:10426sori@ds231719.mlab.com:31719/heroku_cjng4mtc', function (err, client) {
 	if(err) {
 		console.log(err);
 		process.exit(1);
