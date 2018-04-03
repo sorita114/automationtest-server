@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Route();
+var router = express.Router();
 var mongodb = require('mongodb');
 
 var CONTACTS_COLLECTION = 'user';
