@@ -26,3 +26,5 @@ router.get('/', function (req, res, next) {
 			next();
 		});
 });
+
+module.exports = router;
