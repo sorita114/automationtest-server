@@ -12,7 +12,7 @@ mongodb.MongoClient.connect('mongodb://heroku_cjng4mtc:o5g6v2q3v4ebeu6s8pob01vjf
 		process.exit(1);
 	}
 
-	db = client.db();
+	db = client.db('heroku_cjng4mt');
 
 	console.log('Database connection ready');
 });
