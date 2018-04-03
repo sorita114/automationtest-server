@@ -4,6 +4,7 @@
   "description": "automationtest by mz",
   "main": "index.js",
   "dependencies": {
+    "debug": "^3.1.0",
     "express": "^4.16.3",
     "mongodb": "^3.0.5"
   },
