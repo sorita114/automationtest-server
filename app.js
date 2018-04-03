@@ -1,10 +1,6 @@
 var express = require('express');
 var app = express();
 
-app.use('/users', users);
-app.use('/main', main);
-app.use('/login', login);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
