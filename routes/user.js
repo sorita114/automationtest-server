@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
 	db.collection(CONTACTS_COLLECTION)
 		.find()
 		.then(function (result) {
-			console.log(result);
+			res.send(result);
 
 			next();
 		});
