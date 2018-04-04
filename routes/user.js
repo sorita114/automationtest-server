@@ -18,13 +18,9 @@ mongodb.MongoClient.connect('mongodb://heroku_cjng4mtc:o5g6v2q3v4ebeu6s8pob01vjf
 });
 
 router.get('/', function (req, res, next) {
-	db.collection(CONTACTS_COLLECTION)
-		.find()
-		.then(function (result) {
-			res.send(result);
+	res.send(db.collection(CONTACTS_COLLECTION).find());
 
-			next();
-		});
+	next();
 });
 
 module.exports = router;
