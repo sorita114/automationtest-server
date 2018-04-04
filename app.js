@@ -1,13 +1,18 @@
 var express = require('express');
+var users = require('./routes/users');
+var db = require('./db');
+var CONSTS = require('./consts');
+
 var app = express();
 
-var user = require('./routes/user');
-
-app.use('/', function (req, res) {
-	res.send('success!');
+db.connect(CONSTS.DB_URI, CONSTS.DB_NAME, function (err) {
+	if(err) {
+		console.log(err);
+		process.exit(1);
+	}
 });
 
-app.use('/user', user);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -24,7 +29,6 @@ app.use(function(err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
 });
 
 module.exports = app;
