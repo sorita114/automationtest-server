@@ -33,7 +33,9 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-	res.send(req);
+	console.log('post!!');
+	console.log(req.body);
+	res.send('success post!');
 });
 
 
