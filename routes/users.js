@@ -7,7 +7,9 @@ var router = express.Router();
 
 var findUser = function (email, callback) {
 	console.log('findUser');
+	console.log(email);
 	try {
+		console.log('setp1');
 		var collection = db.collection(CONSTS.USER_COLLECTION_NAME);
 
 		collection.find({
