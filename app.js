@@ -2,7 +2,9 @@ var express = require('express');
 var login = require('./routes/login');
 var db = require('./db');
 var CONSTS = require('./consts');
+
 var bodyParser = require('body-parser');
+var timeout = require('connect-timeout');
 
 var app = express();
 
@@ -13,6 +15,7 @@ db.connect(CONSTS.DB_URI, CONSTS.DB_NAME, function (err) {
 	}
 });
 
+app.use(timeout('10s'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/login', login);
