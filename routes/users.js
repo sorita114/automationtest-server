@@ -13,6 +13,7 @@ var findUser = function (email, callback) {
 		collection.find({
 			email: email
 		}).toArray(function (err, user) {
+			console.log(user);
 			assert.equal(err, null);
 			callback(user);
 		});
