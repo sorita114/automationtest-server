@@ -1,41 +1,57 @@
-var express = require('express');
 var assert = require('assert');
+var express = require('express');
 var db = require('../db');
-
 var CONSTS = require('../consts');
 
 var router = express.Router();
 
-var findAllUser = function (db, callback) {
-	var collection = db.collection(CONSTS.USER_COLLECTION_NAME);
+var findUser = function (email, callback) {
+	console.log('findUser');
+	try {
+		var collection = db.collection(CONSTS.USER_COLLECTION_NAME);
 
-	collection.find({}).toArray(function (err, users) {
-		assert.equal(err, null);
-		callback(users);
-	});
+		collection.find({
+			email: email
+		}).toArray(function (err, user) {
+			assert.equal(err, null);
+			callback(user);
+		});
+	} catch (err) {
+		throw err;
+	}
 };
 
-var findUser = function (db, email, callback) {
-	var collection = db.collection(CONSTS.USER_COLLECTION_NAME);
+var insertUser = function (email, password, callback) {
+	console.log('insert');
+	try {
+		var collection = db.collection(CONSTS.USER_COLLECTION_NAME);
 
-	collection.find({
-		email: email
-	}).toArray(function (err, user) {
-		assert.equal(err, null);
-		callback(user);
-	});
+		collection.insert({
+			email: email,
+			password: password
+		}, function (err, res) {
+			if (err) {
+				throw err;
+			}
+
+			callback();
+		});
+	} catch (err) {
+		throw err;
+	}
 };
-
-router.get('/', function (req, res) {
-	findAllUser(db.get(), function (users) {
-		res.send(users);
-	});
-});
 
 router.post('/', function (req, res) {
-	console.log('post!!');
-	console.log(req.body);
-	res.send('success post!');
+	console.log('post!');
+	findUser(req.body.email, function (user) {
+		if(user.length > 0) {
+			res.status(500).send('exit email').end();
+		} else {
+			insertUser(req.body.email, req.body.password, function () {
+				res.status(200).send('success insert user').end();
+			});
+		}
+	});
 });
 
 
