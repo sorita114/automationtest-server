@@ -19,11 +19,20 @@ router.post('/', function (req, res) {
 				.send('not exsit user')
 				.end();
 		} else {
-
-			console.log(user);
-
-			res.status(200)
-				.end();
+			if(user[0].password === req.body.password) {
+				res.status(200)
+					.json({
+						result: true,
+						message: 'success'
+					})
+					.end();
+			} else {
+				res.status(200)
+					.json({
+						result: false,
+						message: 'wrong password'
+					});
+			}
 		}
 	});
 });
