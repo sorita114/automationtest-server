@@ -11,6 +11,7 @@ var findUser = function (email, callback) {
 	try {
 		console.log('setp1');
 		var collection = db.collection(CONSTS.USER_COLLECTION_NAME);
+		console.log('setp2');
 
 		collection.find({
 			email: email
