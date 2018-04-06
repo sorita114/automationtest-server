@@ -1,5 +1,5 @@
 var express = require('express');
-var users = require('./routes/users');
+var login = require('./routes/login');
 var db = require('./db');
 var CONSTS = require('./consts');
 var bodyParser = require('body-parser');
@@ -15,7 +15,7 @@ db.connect(CONSTS.DB_URI, CONSTS.DB_NAME, function (err) {
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use('/users', users);
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
