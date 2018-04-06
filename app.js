@@ -15,7 +15,7 @@ db.connect(CONSTS.DB_URI, CONSTS.DB_NAME, function (err) {
 	}
 });
 
-app.use(timeout('10s'));
+app.use(timeout('20s'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/login', login);
