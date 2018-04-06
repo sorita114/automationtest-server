@@ -5,7 +5,7 @@ var CONSTS = require('../consts');
 var router = express.Router();
 
 router.post('/', function (req, res) {
-	var collection = db.collection(CONSTS.USER_COLLECTION_NAME);
+	var collection = db.get().collection(CONSTS.USER_COLLECTION_NAME);
 
 	collection.find({
 		email: decodeURIComponent(req.body.email)
