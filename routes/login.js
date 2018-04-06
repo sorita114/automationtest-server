@@ -31,7 +31,8 @@ router.post('/', function (req, res) {
 					.json({
 						result: false,
 						message: 'wrong password'
-					});
+					})
+					.end();
 			}
 		}
 	});
